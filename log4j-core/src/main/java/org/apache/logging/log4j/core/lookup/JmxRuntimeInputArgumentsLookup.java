@@ -16,7 +16,7 @@
  */
 package org.apache.logging.log4j.core.lookup;
 
-import java.lang.management.ManagementFactory;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +32,7 @@ import org.apache.logging.log4j.core.config.plugins.Plugin;
 public class JmxRuntimeInputArgumentsLookup extends MapLookup {
 
     static {
-        final List<String> argsList = ManagementFactory.getRuntimeMXBean().getInputArguments();
+        final List<String> argsList = new ArrayList<String>();
         JMX_SINGLETON = new JmxRuntimeInputArgumentsLookup(MapLookup.toMap(argsList));
     }
 
